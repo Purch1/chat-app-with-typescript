@@ -4,6 +4,9 @@
   "description": "Node TypeScript Boilerplate",
   "main": "index.js",
   "scripts": {
+    "start:dev": "nodemon",
+    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/src/index.js",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
