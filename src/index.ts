@@ -1,4 +1,4 @@
-// import dotenv from 'dotenv-safe';
+import dotenv from 'dotenv-safe';
 import express from 'express'
 
 const app = 
