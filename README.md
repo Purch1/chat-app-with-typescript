@@ -1,1 +1,1 @@
-# typescript-express-boilerplate
+# chat-app-with-typescript
