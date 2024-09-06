@@ -1,4 +1,4 @@
-import { ApiException } from './api.exception';
+import { ApiException } from "./ApiException";
 
 /**
  *
