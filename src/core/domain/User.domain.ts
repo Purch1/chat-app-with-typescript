@@ -1,12 +1,16 @@
+import { Genders } from '@src/contract/enums/UserType';
 import { IUser } from '@src/contract/interfaces/IUserService';
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, isValidObjectId } from 'mongoose';
 
 const userSchema: Schema<IUser> = new Schema(
   {
-    id: {
+    avatar: {
       type: String,
-      required: true,
-      unique: true
+      default: ''
+    },
+    fullName: {
+      type: String,
+      required: true
     },
     username: {
       type: String,
@@ -17,6 +21,16 @@ const userSchema: Schema<IUser> = new Schema(
       type: String,
       required: true,
       unique: true
+    },
+    password: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    gender: {
+      type: String,
+      required: true,
+      enum: Genders
     }
   },
   {
@@ -24,6 +38,6 @@ const userSchema: Schema<IUser> = new Schema(
   }
 );
 
-const UserModel = mongoose.model<IUser>('User', userSchema);
+const User = mongoose.model<IUser>('User', userSchema);
 
-export default UserModel;
+export default User;
