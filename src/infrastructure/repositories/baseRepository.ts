@@ -1,5 +1,5 @@
-import { ConflictException, ValidationException } from '@src/core/exceptions';
 import mongoose, { Error as MongooseError } from 'mongoose';
+import { ConflictException, ValidationException } from '@src/core/exceptions';
 
 interface ValidationError {
   message: string;
@@ -67,6 +67,7 @@ class BaseRepository {
 
     throw err;
   }
+
 }
 
 export default BaseRepository;

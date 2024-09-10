@@ -1,6 +1,6 @@
 import { Genders } from '@src/contract/enums/UserType';
 import { IUser } from '@src/contract/interfaces/IUserService';
-import mongoose, { Schema, Document, isValidObjectId } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 const userSchema: Schema<IUser> = new Schema(
   {
