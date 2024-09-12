@@ -5,7 +5,7 @@ import { ApiException } from './ApiException';
  * @param {string} message
  */
 export class ConflictException extends ApiException {
-  constructor(error: { message: string; path: string }) {
+  constructor(error: { message: string}) {
     super(409, error.message);
   }
 }

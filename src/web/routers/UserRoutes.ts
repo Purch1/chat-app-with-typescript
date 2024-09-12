@@ -1,11 +1,14 @@
 import { Router } from 'express';
 import { UserController } from '../controllers/UserController';
-import { createUserValidator, deleteUserValidator, getUserByIdValidator, updateUserValidator } from '../validations/user.validation';
+import {
+  createUserValidator,
+  deleteUserValidator,
+  getUserByIdValidator,
+  updateUserValidator
+} from '../validations/user.validation';
 import { validateRequest } from '../middlewares/validation.middleware';
 
 export const userRouter = Router();
-
-userRouter.post('/register', validateRequest(createUserValidator), UserController.register);
 
 userRouter.get('/', UserController.all);
 

@@ -10,6 +10,7 @@ export class ServerException extends ApiException {
 
   constructor(errors: { message: string; [key: string]: any }, innerException?: Error) {
     super(500, errors.message);
+    console.log(errors.message)
     this.innerException = innerException;
   }
 }

@@ -35,6 +35,8 @@ export const passwordRule = z
   .min(8)
   .max(256);
 
+export const stringRule = z.string().trim().min(1).max(255);
+
 export const usernameRule = z
   .string()
   .trim()

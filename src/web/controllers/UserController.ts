@@ -10,13 +10,6 @@ export class UserController {
     res.status(200).json(response);
   };
 
-  static register = async (req: Request, res: Response) => {
-    const { message, data } = await UserService.register(req.body);
-    const response = BaseHttpResponse.success(message, data);
-
-    res.status(200).json(response);
-  };
-
   static getById = async (req: Request, res: Response) => {
     const { message, data } = await UserService.getById(req.params.userId);
     const response = BaseHttpResponse.success(message, data);

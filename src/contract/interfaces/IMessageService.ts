@@ -1,10 +1,10 @@
-import { Document } from 'mongoose';
+import { Document, ObjectId, Types } from 'mongoose';
 
 export interface IMessage extends Document {
   id: string;
-  content: string;
   senderId: string;
-  chatRoomId: string;
+  receiverId: string;
+  content: string;
   createdAt: Date;
   updatedAt: Date;
 }

@@ -1,24 +1,21 @@
 import { IMessage } from '@src/contract/interfaces/IMessageService';
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, model, Schema } from 'mongoose';
 
-const messageSchema: Schema<IMessage> = new Schema(
+const messageSchema = new Schema(
   {
-    id: {
-      type: String,
-      required: true,
-      unique: true
+    senderId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    receiverId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      // required: true
     },
     content: {
       type: String,
-      required: true
-    },
-    senderId: {
-      type: String,
-      required: true
-    },
-    chatRoomId: {
-      type: String,
-      required: true
+      // required: true
     }
   },
   {
@@ -26,6 +23,6 @@ const messageSchema: Schema<IMessage> = new Schema(
   }
 );
 
-const MessageModel = mongoose.model<IMessage>('Message', messageSchema);
+const Message = model<IMessage>('Message', messageSchema);
 
-export default MessageModel;
+export default Message;

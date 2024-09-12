@@ -1,4 +1,4 @@
-import { AuthService } from '@src/core/services/authService';
+import { AuthService } from '@src/core/services/AuthService';
 import { BaseHttpResponse } from '@src/infrastructure/utils/base-Http-response.utils';
 import { Request, Response } from 'express';
 

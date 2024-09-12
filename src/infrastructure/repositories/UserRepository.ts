@@ -22,6 +22,10 @@ export class UserRepository extends BaseRepository {
     return User.findById(id);
   }
 
+  static async findEmail(email: string) {
+    return User.findOne({ email });
+  }
+
   static async update(id: string, entity: TUpdateUserPayload) {
     try {
       return User.findByIdAndUpdate(id, entity, { new: true });

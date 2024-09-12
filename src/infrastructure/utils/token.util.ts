@@ -18,39 +18,39 @@ export interface EncodedData {
 export class JWTService {
   /**
    * Generates an access token with the provided data and optional duration.
-   * 
+   *
    * @param data - Data to encode in the token (id, etc.).
    * @param duration - Optional custom token duration in seconds.
    * @returns Token data (token and expiry time).
    */
-  static generateAccessToken(data: EncodedData, duration?: number): TokenData {
-    const expiresIn = duration || parseInt(process.env.ACCESS_TOKEN_TTL || '86400'); // Default is 1 day
+  static generateAccessToken(data: EncodedData, duration?: number) {
+    const expiresIn = duration || parseInt(process.env.ACCESS_TOKEN_TTL || '86400');
     const jwtSecret = process.env.JWT_SECRET as jwt.Secret;
 
     const token = jwt.sign(data, jwtSecret, { expiresIn });
-    
-    return { token, expiresIn };
+
+    return  token ;
   }
 
   /**
    * Generates a refresh token with the provided data and optional duration.
-   * 
+   *
    * @param data - Data to encode in the token (id, etc.).
    * @param duration - Optional custom token duration in seconds.
    * @returns Token data (token and expiry time).
    */
   static generateRefreshToken(data: EncodedData, duration?: number): TokenData {
-    const expiresIn = duration || parseInt(process.env.REFRESH_TOKEN_TTL || '604800'); // Default is 7 days
+    const expiresIn = duration || parseInt(process.env.REFRESH_TOKEN_TTL || '604800');
     const jwtSecret = process.env.JWT_SECRET as jwt.Secret;
 
     const token = jwt.sign(data, jwtSecret, { expiresIn });
-    
+
     return { token, expiresIn };
   }
 
   /**
    * Decodes and verifies the provided token.
-   * 
+   *
    * @param token - The token string to decode.
    * @returns Decoded token data or null if invalid.
    */
